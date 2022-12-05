@@ -24,7 +24,7 @@ const Content = () => {
           <br />
           <select
             name="category"
-            value={state.category}
+            // value={state.category}
             onChange={handlerChangeState}
             id="Category-select"
           >
@@ -41,8 +41,9 @@ const Content = () => {
           내역
           <br />
           <input
+            type="text"
             name="content"
-            value={state.content}
+            // value={state.content}
             onChange={handlerChangeState}
           />
         </div>
@@ -50,8 +51,9 @@ const Content = () => {
           금액
           <br />
           <input
+            type="text"
             name="amount"
-            value={state.amount}
+            // value={state.amount}
             onChange={handlerChangeState}
           />
         </div>
