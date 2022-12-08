@@ -4,3 +4,6 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+.expenselist Box {
+  justify-content: space-between;
+}

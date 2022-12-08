@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import { ListItem } from "@mui/material";
 import Content from "./Components/Content";
 import List from "./Components/List";
 import MoneyComeOut from "./Components/MoneyComeOut";
@@ -16,9 +15,9 @@ const App = () => {
   const insertHandler = (item) => {
     const history = {
       id: nextId.current,
-      category: "밥🍚",
-      content: item,
-      amount: 100000,
+      category: item.category,
+      content: item.content,
+      amount: item.amount,
     };
     setHistorys([...historys, history]);
 
@@ -31,7 +30,6 @@ const App = () => {
         <MoneyComeOut />
         <Content insertItem={insertHandler} />
         <List historys={historys} />
-        <ListItem />
       </Template>
     </div>
   );

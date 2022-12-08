@@ -6,7 +6,9 @@ const ListItem = (props) => {
 
   return (
     <div className="ListItem">
-      <div>{history.text}</div>
+      <div>{history.category}</div>
+      <div>{history.content}</div>
+      <div>{history.amount}</div>
     </div>
   );
 };

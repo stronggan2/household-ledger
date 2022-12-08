@@ -1,20 +1,12 @@
 import React, { useState } from "react";
 import "../Style/Content.scss";
-import Button from "@mui/material/Button";
 
-const Content = () => {
-  const [state, setState] = useState({
-    content: "",
-    amount: "",
-    category: "",
-  });
+const Content = (props) => {
+  const { insertItem } = props;
 
-  const handlerChangeState = (e) => {
-    setState({
-      ...state,
-      [e.target.content]: e.target.amount,
-    });
-  };
+  const [content, setContent] = useState("");
+  const [amount, setAmount] = useState("");
+  const [category, setCategory] = useState("");
 
   return (
     <div>
@@ -24,8 +16,8 @@ const Content = () => {
           <br />
           <select
             name="category"
-            // value={state.category}
-            onChange={handlerChangeState}
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
             id="Category-select"
           >
             <option value="">💸텅장인 이유💸</option>
@@ -44,7 +36,8 @@ const Content = () => {
             type="text"
             name="content"
             // value={state.content}
-            onChange={handlerChangeState}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
           />
         </div>
         <div className="inputarea">
@@ -53,13 +46,19 @@ const Content = () => {
           <input
             type="text"
             name="amount"
-            // value={state.amount}
-            onChange={handlerChangeState}
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
           />
         </div>
-        <Button variant="contained" color="success">
+        <button
+          onClick={insertItem({
+            category: category,
+            content: content,
+            amount: amount,
+          })}
+        >
           추가
-        </Button>
+        </button>
       </div>
     </div>
   );
