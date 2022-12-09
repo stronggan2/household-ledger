@@ -11,13 +11,13 @@ const App = () => {
     { id: 3, category: "운동🥊", content: "복싱 재등록", amount: 700000 },
   ]);
 
-  const nextId = useRef(1);
-  const insertHandler = (item) => {
+  const nextId = useRef(4);
+  const insertHandler = (content, amount, category) => {
     const history = {
       id: nextId.current,
-      category: item.category,
-      content: item.content,
-      amount: item.amount,
+      category: category,
+      content: content,
+      amount: amount,
     };
     setHistorys([...historys, history]);
 

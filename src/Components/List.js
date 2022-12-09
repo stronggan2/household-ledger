@@ -4,17 +4,22 @@ import ListItem from "./ListItem";
 
 const List = (props) => {
   const { historys } = props;
+  console.log(historys);
   return (
-    <div className="List">
-      <div className="expenselist">
-        <div className="Box">항목</div>
-        <div className="Box">내역</div>
-        <div className="Box">금액</div>
-      </div>
-      {historys.map((history) => (
-        <ListItem history={history} key={history.id} />
-      ))}
-    </div>
+    <table className="List" border={1}>
+      <thead className="expenselist">
+        <tr>
+          <td className="Box">항목</td>
+          <td className="Box">내역</td>
+          <td className="Box">금액</td>
+        </tr>
+      </thead>
+      <tbody>
+        {historys.map((history) => (
+          <ListItem history={history} key={history.id} />
+        ))}
+      </tbody>
+    </table>
   );
 };
 

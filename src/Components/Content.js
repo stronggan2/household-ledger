@@ -8,6 +8,13 @@ const Content = (props) => {
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
 
+  const clickHandler = () => {
+    insertItem(content, amount, category);
+    setContent("");
+    setAmount("");
+    setCategory("");
+  };
+
   return (
     <div>
       <div className="Contents">
@@ -21,12 +28,12 @@ const Content = (props) => {
             id="Category-select"
           >
             <option value="">💸텅장인 이유💸</option>
-            <option value={1}> 밥🍚</option>
-            <option value={2}> 술🍻</option>
-            <option value={3}> 여행✈</option>
-            <option value={4}> 운동🥊</option>
-            <option value={5}> 경조사💵</option>
-            <option value={6}> 기타💳</option>
+            <option value={"밥🍚"}> 밥🍚</option>
+            <option value={"술🍻"}> 술🍻</option>
+            <option value={"여행✈"}> 여행✈</option>
+            <option value={"운동🥊"}> 운동🥊</option>
+            <option value={"경조사💵"}> 경조사💵</option>
+            <option value={"기타💳"}> 기타💳</option>
           </select>
         </div>
         <div className="inputarea">
@@ -50,15 +57,7 @@ const Content = (props) => {
             onChange={(e) => setAmount(e.target.value)}
           />
         </div>
-        <button
-          onClick={insertItem({
-            category: category,
-            content: content,
-            amount: amount,
-          })}
-        >
-          추가
-        </button>
+        <button onClick={clickHandler}>추가</button>
       </div>
     </div>
   );
