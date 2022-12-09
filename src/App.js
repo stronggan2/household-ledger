@@ -24,12 +24,26 @@ const App = () => {
     nextId.current += 1;
   };
 
+  const removeHandler = (deleted) =>
+    setHistorys(historys.filter((prevHistory) => prevHistory.id !== deleted));
+
+  const updateHandler = (updated) =>
+    setHistorys(
+      historys.map((prevHistory) =>
+      prevHistory.id === updated.id ? updated : prevHistory
+      )
+    );
+
   return (
     <div>
       <Template>
         <MoneyComeOut />
         <Content insertItem={insertHandler} />
-        <List historys={historys} />
+        <List
+          historys={historys}
+          removeItem={removeHandler}
+          updateItem={updateHandler}
+        />
       </Template>
     </div>
   );
